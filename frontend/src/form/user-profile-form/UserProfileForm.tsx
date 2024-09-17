@@ -45,7 +45,7 @@ function UserProfileForm({ onSave, isLoading, currentUser }: Props) {
   return (
     <Form {...form}>
       <form
-        className="space-x-4 bg-gray-50 rounded-lg md:p-10"
+        className="space-y-4 bg-gray-50 rounded-lg md:p-10"
         onSubmit={form.handleSubmit(onSave)}
       >
         <div>
@@ -58,7 +58,7 @@ function UserProfileForm({ onSave, isLoading, currentUser }: Props) {
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem className="my-4">
+            <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input {...field} disabled />
@@ -80,7 +80,7 @@ function UserProfileForm({ onSave, isLoading, currentUser }: Props) {
           )}
         />
 
-        <div className="flex flex-col md:flex-row gap-4 my-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <FormField
             control={form.control}
             name="addressLine1"
