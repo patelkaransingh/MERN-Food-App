@@ -32,7 +32,7 @@ export default function DetailsSection() {
           </FormItem>
         )}
       />
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <FormField
           control={control}
           name="city"
@@ -64,10 +64,10 @@ export default function DetailsSection() {
         control={control}
         name="deliveryPrice"
         render={({ field }) => (
-          <FormItem className="max-w-[25%]">
+          <FormItem className="max-w-[50%] md:max-w-[25%]">
             <FormLabel>Delivery Price (₹)</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" placeholder="125.75" />
+              <Input {...field} className="bg-white" placeholder="40.75" />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -77,7 +77,7 @@ export default function DetailsSection() {
         control={control}
         name="deliveryETA"
         render={({ field }) => (
-          <FormItem className="max-w-[25%]">
+          <FormItem className="max-w-[50%] md:max-w-[25%]">
             <FormLabel>Estimated Delivery Time (minutes)</FormLabel>
             <FormControl>
               <Input {...field} className="bg-white" placeholder="30" />
