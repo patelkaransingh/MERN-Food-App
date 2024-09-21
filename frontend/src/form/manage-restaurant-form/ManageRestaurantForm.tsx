@@ -70,7 +70,7 @@ export default function ManageRestaurantForm({ onSave, isLoading }: Props) {
     );
     formData.append("deliveryETA", formDataJson.deliveryETA.toString());
     formDataJson.cuisines.forEach((cuisine, index) => {
-      formData.append(`cuisine[${index}]`, cuisine);
+      formData.append(`cuisines[${index}]`, cuisine);
     });
     formDataJson.menuItems.forEach((menuItem, index) => {
       formData.append(`menuItems[${index}][name]`, menuItem.name);
