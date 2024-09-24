@@ -7,6 +7,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { X } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 
 type Props = {
@@ -49,9 +50,16 @@ export default function MenuItemInput({ index, removeMenuItem }: Props) {
       <Button
         type="button"
         onClick={removeMenuItem}
-        className="bg-red-500 max-h-fit"
+        className="bg-red-500 max-h-fit hidden md:block"
       >
         Remove
+      </Button>
+      <Button
+        type="button"
+        onClick={removeMenuItem}
+        className="bg-red-500 max-h-fit md:hidden px-2"
+      >
+        <X strokeWidth={3} size={20} />
       </Button>
     </div>
   );

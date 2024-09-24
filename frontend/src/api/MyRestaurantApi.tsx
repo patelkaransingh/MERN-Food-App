@@ -71,7 +71,6 @@ export const useCreateMyRestaurant = () => {
 
   return { createRestaurant, isLoading };
 };
-
 export const useUpdateMyRestaurant = () => {
   const { getAccessTokenSilently } = useAuth0();
 
