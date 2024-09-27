@@ -23,6 +23,7 @@ export const useSearchRestaurants = (city?: string) => {
       enabled: !!city,
     }
   );
+
   return {
     results,
     isLoading,
