@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 type Props = {
-  total: number | undefined;
-  city: string | undefined;
+  total: number;
+  city: string;
 };
 
 export default function SearchResultsInfo({ total = 0, city }: Props) {
