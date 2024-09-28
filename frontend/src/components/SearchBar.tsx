@@ -2,9 +2,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem } from "./ui/form";
-import { CircleArrowRight, Delete, Search } from "lucide-react";
+import { Delete, Search } from "lucide-react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   searchQuery: z.string({
@@ -15,18 +16,28 @@ const formSchema = z.object({
 export type SearchForm = z.infer<typeof formSchema>;
 
 type Props = {
+  searchQuery: string;
   onSubmit: (formData: SearchForm) => void;
   placeHolder: string;
   onReset?: () => void;
 };
 
-export default function SearchBar({ onSubmit, onReset, placeHolder }: Props) {
+export default function SearchBar({
+  searchQuery,
+  onSubmit,
+  onReset,
+  placeHolder,
+}: Props) {
   const form = useForm<SearchForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      searchQuery: "",
+      searchQuery,
     },
   });
+
+  useEffect(() => {
+    form.reset({ searchQuery });
+  }, [form, searchQuery]);
 
   const handleReset = () => {
     form.reset({
@@ -66,19 +77,17 @@ export default function SearchBar({ onSubmit, onReset, placeHolder }: Props) {
             </FormItem>
           )}
         />
-        {form.formState.isDirty && (
-          <div>
-            <Button
-              className="rounded-full hidden md:block"
-              type="button"
-              variant="outline"
-              onClick={handleReset}
-            >
-              clear
-            </Button>
-            <Delete onClick={handleReset} className="md:hidden text-gray-700" />
-          </div>
-        )}
+        <div>
+          <Button
+            className="rounded-full hidden md:block"
+            type="button"
+            variant="outline"
+            onClick={handleReset}
+          >
+            clear
+          </Button>
+          <Delete onClick={handleReset} className="md:hidden text-gray-700" />
+        </div>
         <Button
           className="rounded-full hidden md:block bg-orange-500"
           type="submit"
