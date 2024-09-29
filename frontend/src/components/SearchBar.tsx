@@ -52,7 +52,7 @@ export default function SearchBar({
   return (
     <Form {...form}>
       <form
-        className={`flex items-center flex-1 gap-3 justify-between flex-row border-2 p-3 rounded-full ${
+        className={`flex items-center gap-3 justify-between flex-row border-2 p-3 rounded-full ${
           form.formState.errors.searchQuery && "border-red-500"
         }`}
         onSubmit={form.handleSubmit(onSubmit)}
